@@ -1,0 +1,22 @@
+name: Inventory System CI
+
+on: [push, pull_request]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Pytest
+      run: pip install pytest
+
+    - name: Run All Tests
+      # Chạy tất cả các file có tiền tố test_ trong thư mục tests
+      # Thêm -v để xem chi tiết từng testcase pass/fail
+      run: pytest tests/ -v
