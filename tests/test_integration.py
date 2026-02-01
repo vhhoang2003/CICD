@@ -1,3 +1,4 @@
+from src.warehouse import Warehouse
 def test_purchase_flow():
     wh = Warehouse()
     wh.add_product("Mouse", 20, 10)
